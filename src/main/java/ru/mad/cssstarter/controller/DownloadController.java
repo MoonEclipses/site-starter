@@ -1,6 +1,7 @@
 package ru.mad.cssstarter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
@@ -14,18 +15,18 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import ru.mad.cssstarter.filegeneration.CssGenrator;
 import ru.mad.cssstarter.filegeneration.FileGenerator;
 import ru.mad.cssstarter.json.FormData;
 
 @Controller
 public class DownloadController {
-    private final String fileBasePath = "src/main/resources/download-files/";
+    private final String fileBasePath;
     private final String zipFileName = "generated-files";
     private FileGenerator fileGenrator;
 
     @Autowired
-    public DownloadController(FileGenerator fileGenrator) {
+    public DownloadController(@Value("${download.filebasepath}") String fileBasePath, FileGenerator fileGenrator) {
+        this.fileBasePath = fileBasePath;
         this.fileGenrator = fileGenrator;
     }
 

@@ -1,5 +1,6 @@
 package ru.mad.cssstarter.filegeneration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -9,7 +10,13 @@ import java.util.List;
 
 @Component
 public class CssGenrator implements FileGenerator {
-    private final String fileBasePath = "src/main/resources/download-files/";
+
+    private final String fileBasePath;
+
+    public CssGenrator(@Value("${download.filebasepath}") String fileBasePath) {
+        this.fileBasePath = fileBasePath;
+    }
+
     @Override
     public String generate(List<String> fileData){
         Date date = new Date();
