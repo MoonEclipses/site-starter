@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&family=Quicksand:wght@600&family=Roboto:ital,wght@0,300;0,400;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/funcStyle.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-  <button class="accordion"> Аккордеон </button>
-  <div class="panel"><p> Lorem ipsum... </p></div>
+  <button class="accordion"> &lt;p&gt; </button>
+  <div class="panel">
+      <select id="list">
+          <option value="1">Helvetica</option>
+          <option selected value="2">Times New Roman</option>
+          <option value="3">Georgia</option>
+      </select>
+      <div>
+          <p class="toChange">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+  </div>
+  <button id="modal-btn">+ ADD</button>
+  <div id="my-modal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Modal Header</h2>
+          </div>
+          <div class="modal-body">
+              <p>This is my modal</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+      </div>
+  </div>
+  <script type="text/javascript" src="../static/js/modal.js"></script>
+  <script type="text/javascript" src="../static/js/fontChanger.js"></script>
   <script type="text/javascript" src="../static/js/accordion.js"></script>
 </body>
 </html>
