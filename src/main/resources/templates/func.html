@@ -10,14 +10,21 @@
     <title>Title</title>
 </head>
 <body>
+<datalist id="datalist">
+    <option>Helvetica</option>
+    <option selected>Times New Roman</option>
+    <option>Georgia</option>
+</datalist>
   <button class="accordion"> &lt;p&gt; </button>
   <div class="panel">
-      <input type="text" list="datalist" id="selectedFont" autocomplete="off">
-      <datalist id="datalist" size="1">
-          <option>Helvetica</option>
-          <option selected>Times New Roman</option>
-          <option>Georgia</option>
-      </datalist>
+      <input type="text" list="datalist" class="selectedFont" autocomplete="off">
+      <div>
+          <p class="toChange">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+  </div>
+  <button class="accordion"> &lt;p&gt; </button>
+  <div class="panel">
+      <input type="text" list="datalist" class="selectedFont" autocomplete="off">
       <div>
           <p class="toChange">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
