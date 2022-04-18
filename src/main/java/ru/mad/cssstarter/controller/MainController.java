@@ -9,4 +9,8 @@ public class MainController {
     public String showDPage(){
         return "download";
     }
+    @GetMapping("/quest")
+    public String showFunc(){
+        return "func";
+    }
 }
