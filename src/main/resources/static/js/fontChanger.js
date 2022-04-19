@@ -1,14 +1,11 @@
-let list = document.querySelector('.selectedFont'); //Берем лист
-const toChange = document.querySelector('.toChange'); //Берем текст, который будем менять
+let list = document.querySelectorAll('.selectedFont'); //Берем лист
+const toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
 
-
-
-list.addEventListener("click", function () {
-    list.value = "";
-
-})
-list.addEventListener("change", change) //При изменении в листе меняем текст
-
-function change() {
-    toChange.style.fontFamily = list.value;
+for( let i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", function () {
+        list[i].value = "";
+    });
+    list[i].addEventListener("change", function () {
+        toChange[i].style.fontFamily = list[i].value;
+    }); //При изменении в листе меняем текст
 }

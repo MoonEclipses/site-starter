@@ -27,6 +27,7 @@ body {
     overflow: hidden;
     border-radius: 0 0 10px 10px;
     transition: max-height 0.2s ease-out;
+    margin-bottom: 10px;
 }
 /*
 Пример, потом удалить
@@ -34,7 +35,7 @@ body {
 <div class="panel"><p> Lorem ipsum... </p></div>
  */
 
-#selectedFont {
+.selectedFont {
     margin-top: 10px;
 }
 
