@@ -1,4 +1,4 @@
-let list = document.querySelector('#selectedFont'); //Берем лист
+let list = document.querySelector('.selectedFont'); //Берем лист
 const toChange = document.querySelector('.toChange'); //Берем текст, который будем менять
 
 
