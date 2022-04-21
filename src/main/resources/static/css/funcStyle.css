@@ -28,6 +28,7 @@ body {
     border-radius: 0 0 10px 10px;
     transition: max-height 0.2s ease-out;
     margin-bottom: 10px;
+
 }
 /*
 Пример, потом удалить
@@ -39,7 +40,7 @@ body {
     margin-top: 10px;
 }
 
-#toChange {
+.toChange {
     font-family: Times New Roman;
 
 }
@@ -122,3 +123,9 @@ body {
         opacity: 1;
     }
 }
+
+.fontSize {
+    width: 45px;
+    margin-left: 5px;
+}
+
