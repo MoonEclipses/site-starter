@@ -7,7 +7,7 @@ function ready() {
     //вместо ссылки при запуске серва должно стоять /fonts/get
     xhr.responseType = 'json';
     xhr.send();
-    let datalist = document.getElementById('datalist');
+    let datalist = document.getElementById('fontlist');
 
     xhr.onload = function () {
         let fonts = xhr.response;
