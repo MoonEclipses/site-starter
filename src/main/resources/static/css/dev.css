@@ -5,7 +5,7 @@
 
 body{
     background-color: #E0E0E0;
-    background-image: url(static/img/back3.png);
+    background-image: url(../img/back3.png);
     background-repeat: no-repeat;
     background-size: 100%;
 }
