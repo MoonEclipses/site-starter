@@ -1,0 +1,178 @@
+
+/* Настройки для кнопки аккордеона */
+.accordion {
+    background-color: #E0E0E0;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+    border-radius: 10px 10px 0 0;
+}
+/* Бэкграунд при наведении и активном состоянии, мб вообще убрать для active, выглядит посредственно */
+.accordion:hover {
+    background-color: #ccc;
+}
+.boxes{
+    margin-top: 6rem;
+}
+/* Настройки для внутренности аккордеона */
+.panel {
+    padding: 0 18px;
+    background-color: #E0E0E0;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 10px;
+
+}
+/*
+Пример, потом удалить
+<button class="accordion"> Аккордеон </button>
+<div class="panel"><p> Lorem ipsum... </p></div>
+ */
+
+.selectedFont {
+    margin-top: 10px;
+}
+
+.toChange {
+    font-family: Times New Roman;
+
+}
+
+#modal-btn {
+    font-family: Quicksand, sans-serif ;
+    font-size: 24px;
+    background: #EDB886;
+    border-radius: 20px;
+    border: 0;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+:root {
+    --modal-duration: 1s;
+    --modal-color: #428bca;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Настройка фона при нажатии кнопки */
+
+.modal-content {
+    margin: 10% auto;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+}
+
+.modal-header h2,
+.modal-footer h3 {
+    margin: 0;
+}
+
+.modal-header {
+    background: var(--modal-color);
+    padding: 15px;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-body {
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    color: #fff;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fontSize {
+    width: 45px;
+    margin-left: 5px;
+}
+.content {
+    display: flex;
+    width: 85%;
+    min-height: 80vh;
+    margin: 0 auto;
+}
+.settings{
+    width: 30%;
+}
+.siteBlock{
+    padding: 0 2rem;
+    width: 100%;
+}
+.site {
+    height: 100%;
+    width: 100%;
+}
+#header{
+    border-radius: 30px 30px 0 0;
+    background: #EDB886;
+    height: 5rem;
+    width: 100%;
+}
+#content{
+    background: white;
+    min-height: 100%;
+    width: 100%;
+}
+#wrap {
+    margin: 0 auto;
+    width: 80%;
+}
+#block {
+    padding-top: 20px;
+    min-height: 40px;
+}
+#footer{
+    background: #444444;
+    height: 5rem;
+    width: 100%;
+}
+.course {
+    margin-top: 170px;
+    height: 70px;
+}
+.toChange {
+    margin: 0px 0px;
+}

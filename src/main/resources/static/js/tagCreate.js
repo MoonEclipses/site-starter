@@ -64,5 +64,6 @@ btnptag.addEventListener('click', function () {
 
     lastaccordset();
     lastchangerset();
+    closeModal();
 });
 

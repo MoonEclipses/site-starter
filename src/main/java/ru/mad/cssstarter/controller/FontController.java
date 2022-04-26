@@ -27,6 +27,8 @@ public class FontController {
             String font = arr.getJSONObject(i).getString("family");
             resArr.put(font);
         }
-        return resArr.toString();
+        JSONObject resObj = new JSONObject();
+        resObj.append("fonts",resArr);
+        return resObj.toString();
     }
 }

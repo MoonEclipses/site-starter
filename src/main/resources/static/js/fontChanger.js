@@ -1,3 +1,4 @@
+
 let list = document.querySelectorAll('.selectedFont'); //Берем лист
 let cursive = document.querySelectorAll('.cursiveChange')
 let bold = document.querySelectorAll('.boldChange')
@@ -6,12 +7,14 @@ let panel = document.querySelectorAll('.panel')
 let language = document.querySelectorAll('.changeLanguage')
 let toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
 
+
 function changerset() {
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function () {
             list[i].value = "";
         });
         list[i].addEventListener("change", function () {
+            inject(list[i].value);
             toChange[i].style.fontFamily = list[i].value;
         }); //При изменении в листе меняем текст
         cursive[i].addEventListener('change', function () {
@@ -54,6 +57,7 @@ function lastchangerset() {
             list[list.length - 1].value = "";
         });
         list[list.length - 1].addEventListener("change", function () {
+            import("fontInjection.js").then(module => module.inject(list[i].value));
             toChange[list.length - 1].style.fontFamily = list[list.length - 1].value;
         }); //При изменении в листе меняем текст
         cursive[list.length - 1].addEventListener('change', function () {
