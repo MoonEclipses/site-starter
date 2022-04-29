@@ -66,7 +66,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     height: 100%;
@@ -150,8 +150,11 @@
     background: #EDB886;
     height: 5rem;
     width: 100%;
+    box-shadow: 4px 4px 3px 2px black;
 }
 #content{
+    box-shadow: 4px 4px 3px 2px black;
+    z-index: -1;
     background: white;
     min-height: 100%;
     width: 100%;
@@ -165,6 +168,7 @@
     min-height: 40px;
 }
 #footer{
+    box-shadow: 4px 4px 3px 2px black;
     background: #444444;
     height: 5rem;
     width: 100%;
@@ -174,5 +178,14 @@
     height: 70px;
 }
 .toChange {
-    margin: 0px 0px;
+
+}
+.val {
+    margin-top: 10px;
+    margin-left: 10vw;
+    z-index: 80;
+}
+.box{
+    display: flex;
+    width: 70vw;
 }

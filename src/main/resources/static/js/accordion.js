@@ -1,7 +1,7 @@
-//Анимированный аккордеон
-let acc = document.getElementsByClassName("accordion");
 
 function accordionset() {
+    let boxes = document.querySelector('.boxes');
+    let acc = boxes.getElementsByClassName("accordion");
     for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
             this.classList.toggle("active");
@@ -16,6 +16,8 @@ function accordionset() {
 }
 
 function lastaccordset() {
+    let boxes = document.querySelector('.boxes');
+    let acc = boxes.getElementsByClassName("accordion");
     acc[acc.length - 1].addEventListener("click", function() {
         this.classList.toggle("active");
         let panel = this.nextElementSibling;
