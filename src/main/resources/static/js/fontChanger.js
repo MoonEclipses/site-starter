@@ -46,18 +46,19 @@ function changerset() {
     }
 }
 function lastchangerset() {
-    let list = document.querySelectorAll('.selectedFont'); //Берем лист
-    let cursive = document.querySelectorAll('.cursiveChange')
-    let bold = document.querySelectorAll('.boldChange')
-    let fontsize = document.querySelectorAll('.fontSize')
-    let panel = document.querySelectorAll('.panel')
-    let language = document.querySelectorAll('.changeLanguage')
-    let toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
+    let boxes = document.querySelector('.boxes');
+    let list = boxes.querySelectorAll('.selectedFont'); //Берем лист
+    let cursive = boxes.querySelectorAll('.cursiveChange')
+    let bold = boxes.querySelectorAll('.boldChange')
+    let fontsize = boxes.querySelectorAll('.fontSize')
+    let panel = boxes.querySelectorAll('.panel')
+    let language = boxes.querySelectorAll('.changeLanguage')
+    let toChange = boxes.querySelectorAll('.toChange'); //Берем текст, который будем менять
         list[list.length - 1].addEventListener("click", function () {
             list[list.length - 1].value = "";
         });
         list[list.length - 1].addEventListener("change", function () {
-            import("fontInjection.js").then(module => module.inject(list[i].value));
+            inject(list[list.length - 1].value);
             toChange[list.length - 1].style.fontFamily = list[list.length - 1].value;
         }); //При изменении в листе меняем текст
         cursive[list.length - 1].addEventListener('change', function () {
