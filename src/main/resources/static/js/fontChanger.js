@@ -6,6 +6,7 @@ let fontsize = document.querySelectorAll('.fontSize')
 let panel = document.querySelectorAll('.panel')
 let language = document.querySelectorAll('.changeLanguage')
 let toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
+let deleteTagBox = document.querySelectorAll('.deleteTagBox');
 
 
 function changerset() {
@@ -42,17 +43,22 @@ function changerset() {
                 toChange[i].textContent = "Cozy sphinx waves quart jug of bad milk";
                 language[i].textContent = "eng";
             }
-        })
+        });
+        deleteTagBox[list.length - 1].addEventListener('click', function () {
+            let tagBox = document.querySelectorAll('.box');
+            tagBox[list.length - 1].remove();
+        });
     }
 }
 function lastchangerset() {
     let list = document.querySelectorAll('.selectedFont'); //Берем лист
-    let cursive = document.querySelectorAll('.cursiveChange')
-    let bold = document.querySelectorAll('.boldChange')
-    let fontsize = document.querySelectorAll('.fontSize')
-    let panel = document.querySelectorAll('.panel')
-    let language = document.querySelectorAll('.changeLanguage')
+    let cursive = document.querySelectorAll('.cursiveChange');
+    let bold = document.querySelectorAll('.boldChange');
+    let fontsize = document.querySelectorAll('.fontSize');
+    let panel = document.querySelectorAll('.panel');
+    let language = document.querySelectorAll('.changeLanguage');
     let toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
+    let deleteTagBox = document.querySelectorAll('.deleteTagBox');
         list[list.length - 1].addEventListener("click", function () {
             list[list.length - 1].value = "";
         });
@@ -85,6 +91,11 @@ function lastchangerset() {
                 toChange[list.length - 1].textContent = "Cozy sphinx waves quart jug of bad milk";
                 language[list.length - 1].textContent = "eng";
             }
-        })
-    }
+        });
+        deleteTagBox[list.length - 1].addEventListener('click', function () {
+           let tagBox = document.querySelectorAll('.box');
+           tagBox[list.length - 1].remove();
+        });
+
+}
 changerset();

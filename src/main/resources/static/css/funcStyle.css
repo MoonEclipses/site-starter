@@ -129,3 +129,15 @@ body {
     margin-left: 5px;
 }
 
+.deleteTagBox {
+    float: right;
+    font-size: 30px;
+    color: #000;
+}
+
+.deleteTagBox:hover,
+.deleteTagBox:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}

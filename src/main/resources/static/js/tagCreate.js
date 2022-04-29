@@ -1,33 +1,39 @@
-let btnptag = document.querySelector('.createptag');
+let pTagBtn = document.querySelector('.createptag');
 let boxes = document.querySelector('.boxes');
 
-btnptag.addEventListener('click', function () {
+pTagBtn.addEventListener('click', function () {
 
-    let accordbtn = document.createElement('button');
-    let paneldiv = document.createElement('div');
-    let ptag = document.createElement('p');
+
+    let tagBox = document.createElement('div')
+    let accordBtn = document.createElement('button');
+    let panelDiv = document.createElement('div');
+    let pTag = document.createElement('p');
     let fontStyle = document.createElement('input');
     let cursiveStyle = document.createElement('input');
     let boldStyle = document.createElement('input');
     let fontSizeStyle = document.createElement('input');
     let fontChangeLanguage = document.createElement('button');
     let pCutter = document.createElement('p');
-    let labelcurs = document.createElement('label');
-    let labelbold = document.createElement('label');
-    let labelsize = document.createElement('label');
-    let labelfontStyle = document.createElement('label');
+    let labelCurs = document.createElement('label');
+    let labelBold = document.createElement('label');
+    let labelSize = document.createElement('label');
+    let labelFontStyle = document.createElement('label');
 
-    accordbtn.className = "accordion";
-    accordbtn.innerHTML = "&lt;p&gt;"
-    paneldiv.className = "panel";
+    let deleteTagBox = document.createElement('span')
+
+    tagBox.className = "box";
+
+    accordBtn.className = "accordion";
+    accordBtn.innerHTML = "&lt;p&gt;"
+    panelDiv.className = "panel";
 
     fontStyle.type = "text";
     fontStyle.setAttribute('list', 'fontlist');
     fontStyle.className = "selectedFont";
     fontStyle.autocomplete = "off";
 
-    ptag.className = "toChange";
-    ptag.innerHTML = "Cozy sphinx waves quart jug of bad milk";
+    pTag.className = "toChange";
+    pTag.innerHTML = "Cozy sphinx waves quart jug of bad milk";
 
     cursiveStyle.className = "cursiveChange";
     cursiveStyle.type = "checkbox";
@@ -45,22 +51,28 @@ btnptag.addEventListener('click', function () {
     fontChangeLanguage.className = "changeLanguage";
     fontChangeLanguage.innerHTML = "eng";
 
-    boxes.append(accordbtn);
-    boxes.append(paneldiv);
+    deleteTagBox.className = "deleteTagBox";
+    deleteTagBox.innerHTML = "&times;";
 
-    paneldiv.append(fontStyle);
-    paneldiv.append(pCutter);
-    pCutter.append(labelcurs);
-    labelcurs.append("Курсив");
-    labelcurs.append(cursiveStyle);
-    pCutter.append(labelbold);
-    labelbold.append("Жирный");
-    labelbold.append(boldStyle);
-    pCutter.append(labelsize);
-    labelsize.append("Размер текста");
-    labelsize.append(fontSizeStyle);
+    boxes.append(tagBox);
+    tagBox.append(accordBtn);
+
+
+    tagBox.append(panelDiv);
+    panelDiv.append(deleteTagBox);
+    panelDiv.append(fontStyle);
+    panelDiv.append(pCutter);
+    pCutter.append(labelCurs);
+    labelCurs.append("Курсив");
+    labelCurs.append(cursiveStyle);
+    pCutter.append(labelBold);
+    labelBold.append("Жирный");
+    labelBold.append(boldStyle);
+    pCutter.append(labelSize);
+    labelSize.append("Размер текста");
+    labelSize.append(fontSizeStyle);
     pCutter.append(fontChangeLanguage);
-    paneldiv.append(ptag);
+    panelDiv.append(pTag);
 
     lastaccordset();
     lastchangerset();
