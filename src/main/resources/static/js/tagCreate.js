@@ -1,4 +1,4 @@
-let btnptag = document.querySelector('.createptag');
+let tagBtn = document.querySelector('.createptag');
 let boxes = document.querySelector('.boxes');
 
 function createElement(template,elementName){
@@ -9,11 +9,15 @@ function createElement(template,elementName){
     return elem;
 }
 
-btnptag.addEventListener('click', function () {
+tagBtn.addEventListener('click', function () {
     let template = document.querySelector('.template').cloneNode(true);
     template.className = "box";
     template.style = "";
-    let elem = createElement(template,btnptag.value);
+    let elem = createElement(template,tagBtn.value);
+    let deleteTagBox = document.createElement('span')
+    deleteTagBox.className = "deleteTagBox";
+    deleteTagBox.innerHTML = "&times;";
+    template.querySelector(".panel").appendChild(deleteTagBox);
     template.querySelector(".val").appendChild(elem);
     boxes.appendChild(template);
     lastaccordset();

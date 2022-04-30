@@ -16,33 +16,23 @@
     <option>Georgia</option>
 </datalist>
 <div class="boxes">
-    <button class="accordion" value="p"> &lt;p&gt; </button>
-    <div class="panel">
-        <label>
-            <input type="text" list="fontlist" class="selectedFont" autocomplete="off">
-        </label>
-        <p>
-            <label >Курсив<input type="checkbox" class="cursiveChange"></label>
-            <label>Жирный<input type="checkbox" class="boldChange"></label>
-            <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
-            <button class="changeLanguage">eng</button>
-        </p>
-        <div>
-            <p class="toChange">Cozy sphinx waves quart jug of bad milk</p>
-        </div>
-        <p><button class="JSONbtn">JSON</button></p>
-    </div>
-    <button class="accordion"> &lt;p&gt; </button>
-    <div class="panel">
-        <input type="text" list="fontlist" class="selectedFont" autocomplete="off">
-        <p>
-            <label >Курсив<input type="checkbox" class="cursiveChange"></label>
-            <label>Жирный<input type="checkbox" class="boldChange"></label>
-            <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
-            <button class="changeLanguage">eng</button>
-        </p>
-        <div>
-            <p class="toChange">Cozy sphinx waves quart jug of bad milk</p>
+    <div class="box">
+        <button class="accordion"> &lt;p&gt; </button>
+        <div class="panel">
+            <span class="deleteTagBox">&times;</span>
+            <label>
+                <input type="text" list="fontlist" class="selectedFont" autocomplete="off">
+            </label>
+            <p>
+                <label >Курсив<input type="checkbox" class="cursiveChange"></label>
+                <label>Жирный<input type="checkbox" class="boldChange"></label>
+                <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
+                <button class="changeLanguage">eng</button>
+            </p>
+            <div>
+                <p class="toChange">Cozy sphinx waves quart jug of bad milk</p>
+            </div>
+            <p><button class="JSONbtn">JSON</button></p>
         </div>
     </div>
 </div>
