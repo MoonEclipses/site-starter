@@ -16,8 +16,8 @@ tagBtn.addEventListener('click', function () {
     let elem = createElement(template,tagBtn.value);
     template.querySelector(".val").appendChild(elem);
     boxes.appendChild(template);
-    lastaccordset();
-    lastchangerset();
+    lastAccordSet();
+    lastChangerSet();
     closeModal();
 });
 

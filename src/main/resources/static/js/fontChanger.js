@@ -1,64 +1,12 @@
-
-let list = document.querySelectorAll('.selectedFont'); //Берем лист
-let cursive = document.querySelectorAll('.cursiveChange')
-let bold = document.querySelectorAll('.boldChange')
-let fontsize = document.querySelectorAll('.fontSize')
-let panel = document.querySelectorAll('.panel')
-let language = document.querySelectorAll('.changeLanguage')
-let toChange = document.querySelectorAll('.toChange'); //Берем текст, который будем менять
-let deleteTagBox = document.querySelectorAll('.deleteTagBox');
-
-
-function changerset() {
-    for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener("click", function () {
-            list[i].value = "";
-        });
-        list[i].addEventListener("change", function () {
-            inject(list[i].value);
-            toChange[i].style.fontFamily = list[i].value;
-        }); //При изменении в листе меняем текст
-        cursive[i].addEventListener('change', function () {
-            if (cursive[i].checked === true) {
-                toChange[i].style.fontStyle = "italic";
-            } else {
-                toChange[i].style.fontStyle = "";
-            }
-        });
-        bold[i].addEventListener('change', function () {
-            if (bold[i].checked === true) {
-                toChange[i].style.fontWeight = "bold";
-            } else {
-                toChange[i].style.fontWeight = "normal";
-            }
-        });
-        fontsize[i].addEventListener('change', function () {
-            toChange[i].style.fontSize = fontsize[i].value + "px";
-        });
-        language[i].addEventListener('click', function () {
-            if (language[i].textContent === "eng") {
-                toChange[i].textContent = "Поешь этих сладких булок, да выпей же чаю";
-                language[i].textContent = "rus";
-            } else if (language[i].textContent === "rus") {
-                toChange[i].textContent = "Cozy sphinx waves quart jug of bad milk";
-                language[i].textContent = "eng";
-            }
-        });
-        deleteTagBox[list.length - 1].addEventListener('click', function () {
-            let tagBox = document.querySelectorAll('.box');
-            tagBox[list.length - 1].remove();
-        });
-    }
-}
-function lastchangerset() {
-    let boxes = document.querySelector('.boxes');
-    let list = boxes.querySelectorAll('.selectedFont'); //Берем лист
-    let cursive = boxes.querySelectorAll('.cursiveChange')
-    let bold = boxes.querySelectorAll('.boldChange')
-    let fontsize = boxes.querySelectorAll('.fontSize')
-    let panel = boxes.querySelectorAll('.panel')
+function lastChangerSet() {
+    let boxes = document.querySelector('.boxes'); //Все боксы тегов
+    let list = boxes.querySelectorAll('.selectedFont'); //Изменяемый текст
+    let cursive = boxes.querySelectorAll('.cursiveChange') //Курсив
+    let bold = boxes.querySelectorAll('.boldChange') //Жирный
+    let fontsize = boxes.querySelectorAll('.fontSize') //Размер текста
+    let panel = boxes.querySelectorAll('.panel') //Панель
     let language = boxes.querySelectorAll('.changeLanguage')
-    let toChange = boxes.querySelectorAll('.toChange'); //Берем текст, который будем менять
+    let toChange = boxes.querySelectorAll('.toChange');
     let deleteTagBox = boxes.querySelectorAll('.deleteTagBox');
     let tagBox = boxes.querySelectorAll('.box');
         list[list.length - 1].addEventListener("click", function () {
@@ -99,4 +47,4 @@ function lastchangerset() {
         });
 
 }
-changerset();
+lastChangerSet();
