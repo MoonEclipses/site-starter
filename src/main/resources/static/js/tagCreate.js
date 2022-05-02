@@ -14,10 +14,6 @@ tagBtn.addEventListener('click', function () {
     template.className = "box";
     template.style = "";
     let elem = createElement(template,tagBtn.value);
-    let deleteTagBox = document.createElement('span')
-    deleteTagBox.className = "deleteTagBox";
-    deleteTagBox.innerHTML = "&times;";
-    template.querySelector(".panel").appendChild(deleteTagBox);
     template.querySelector(".val").appendChild(elem);
     boxes.appendChild(template);
     lastaccordset();

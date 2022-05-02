@@ -60,6 +60,7 @@ function lastchangerset() {
     let language = boxes.querySelectorAll('.changeLanguage')
     let toChange = boxes.querySelectorAll('.toChange'); //Берем текст, который будем менять
     let deleteTagBox = boxes.querySelectorAll('.deleteTagBox');
+    let tagBox = boxes.querySelectorAll('.box');
         list[list.length - 1].addEventListener("click", function () {
             list[list.length - 1].value = "";
         });
@@ -94,7 +95,6 @@ function lastchangerset() {
             }
         });
         deleteTagBox[list.length - 1].addEventListener('click', function () {
-           let tagBox = document.querySelectorAll('.box');
            tagBox[list.length - 1].remove();
         });
 
