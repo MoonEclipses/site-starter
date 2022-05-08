@@ -6,10 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
           rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='../static/css/styleMAIN.css'>
-    <link rel='stylesheet' type='text/css' href='../static/css/quest.css'>
     <link rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
+    <link rel='stylesheet' type='text/css' href='../static/css/styleMAIN.css'>
+    <link rel='stylesheet' type='text/css' href='../static/css/quest.css'>
 </head>
 <body>
 <section class="body1">
@@ -17,27 +17,28 @@
     <div class="content">
         <div class="settings">
             <datalist id="fontlist">
-                <option>Helvetica</option>
-                <option selected>Times New Roman</option>
-                <option>Georgia</option>
             </datalist>
             <div class="boxes">
                 <div class="box">
                     <div class="set">
                         <button class="accordion"> &lt;p&gt;</button>
                         <div class="panel">
-                            <label>
-                                <input type="text" list="fontlist" class="selectedFont" autocomplete="off">
-                            </label>
+                            <p>
+                                <label><input type="text" list="fontlist" class="selectedFont" autocomplete="off"></label>
+                            </p>
+                            <p>
+                                <label><input type="checkbox" class="needToDownload"></label>
+                                <label style="display: none" class="labelClassName">Класс<input type="text" class="className"></label>
+                            </p>
                             <p>
                                 <label>Курсив<input type="checkbox" class="cursiveChange"></label>
                                 <label>Жирный<input type="checkbox" class="boldChange"></label>
-                                <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1"
-                                                           max="36"></label>
+                                <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
                                 <button class="changeLanguage">eng</button>
                             </p>
                             <p>
-                                <button class="JSONbtn">JSON</button>
+                                <label>Шрифт<input type="color" class="toChangeFontColor" value="#000000"></label>
+                                <label>Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
                             </p>
                             <span class="deleteTagBox">&times;</span>
                         </div>
@@ -47,6 +48,9 @@
                     </div>
                 </div>
             </div>
+            <p>
+                <button class="JSONbtn">JSON</button>
+            </p>
             <button id="modal-btn">+ ADD</button>
             <div id="my-modal" class="modal">
                 <div class="modal-content">
@@ -65,6 +69,7 @@
                 </div>
             </div>
         </div>
+
         <div class="siteBlock">
             <div class="site">
                 <div id="header"></div>
@@ -78,6 +83,7 @@
                 <div id="footer"></div>
             </div>
         </div>
+
         <script type="text/javascript" src="../static/js/fontLoader.js"></script>
         <script type="text/javascript" src="../static/js/sendJson.js"></script>
         <script type="text/javascript" src="../static/js/tagCreate.js"></script>
@@ -86,6 +92,7 @@
         <script type="text/javascript" src="../static/js/fontChanger.js"></script>
         <script type="text/javascript" src="../static/js/accordion.js"></script>
     </div>
+
 </section>
 <!-- Course -->
 <section class="course">
@@ -96,21 +103,29 @@
     <div class="set">
         <button class="accordion"></button>
         <div class="panel">
-            <label>
-                <input type="text" list="fontlist" class="selectedFont" autocomplete="off">
-            </label>
+            <p>
+                <label><input type="text" list="fontlist" class="selectedFont" autocomplete="off"></label>
+            </p>
+            <p>
+                <label><input type="checkbox" class="needToDownload"></label>
+                <label style="display: none" class="labelClassName">Класс<input type="text" class="className"></label>
+            </p>
             <p>
                 <label>Курсив<input type="checkbox" class="cursiveChange"></label>
                 <label>Жирный<input type="checkbox" class="boldChange"></label>
                 <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
                 <button class="changeLanguage">eng</button>
-                <br>
-                <span class="deleteTagBox">&times;</span>
             </p>
+            <p>
+                <label>Шрифт<input type="color" class="toChangeFontColor" value="#000000"></label>
+                <label>Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
+            </p>
+            <span class="deleteTagBox">&times;</span>
         </div>
     </div>
     <div class="val">
     </div>
 </div>
+
 </body>
 </html>

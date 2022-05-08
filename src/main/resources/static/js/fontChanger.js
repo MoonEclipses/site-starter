@@ -9,6 +9,11 @@ function lastChangerSet() {
     let toChange = boxes.querySelectorAll('.toChange');
     let deleteTagBox = boxes.querySelectorAll('.deleteTagBox');
     let tagBox = boxes.querySelectorAll('.box');
+    let fontColor = boxes.querySelectorAll('.toChangeFontColor');
+    let backgroundColor = boxes.querySelectorAll('.toChangeBackgroundColor');
+    let divVal = boxes.querySelectorAll('.val');
+    let classCheckbox = boxes.querySelectorAll('.needToDownload');
+    let labelClassName = boxes.querySelectorAll('.labelClassName');
         list[list.length - 1].addEventListener("click", function () {
             list[list.length - 1].value = "";
         });
@@ -45,6 +50,18 @@ function lastChangerSet() {
         deleteTagBox[list.length - 1].addEventListener('click', function () {
            tagBox[list.length - 1].remove();
         });
-
+        fontColor[list.length - 1].addEventListener('input',function () {
+            toChange[list.length - 1].style.color = fontColor[list.length - 1].value;
+        });
+        backgroundColor[list.length - 1].addEventListener('input',function () {
+            divVal[list.length - 1].style.backgroundColor = backgroundColor[list.length - 1].value;
+        });
+        classCheckbox[list.length - 1].addEventListener('change', function () {
+            if(classCheckbox[list.length - 1].checked) {
+                labelClassName[list.length - 1].style.display = "inline";
+            } else {
+                labelClassName[list.length - 1].style.display = "none";
+            }
+        });
 }
 lastChangerSet();
