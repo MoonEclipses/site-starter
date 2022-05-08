@@ -48,7 +48,7 @@ function lastChangerSet() {
             }
         });
         deleteTagBox[list.length - 1].addEventListener('click', function () {
-           tagBox[list.length - 1].remove();
+
         });
         fontColor[list.length - 1].addEventListener('input',function () {
             toChange[list.length - 1].style.color = fontColor[list.length - 1].value;
@@ -56,12 +56,15 @@ function lastChangerSet() {
         backgroundColor[list.length - 1].addEventListener('input',function () {
             divVal[list.length - 1].style.backgroundColor = backgroundColor[list.length - 1].value;
         });
-        classCheckbox[list.length - 1].addEventListener('change', function () {
+        $(classCheckbox[list.length - 1]).change(function () {
             if(classCheckbox[list.length - 1].checked) {
-                labelClassName[list.length - 1].style.display = "inline";
+                $(labelClassName[list.length - 1]).fadeIn(300);
             } else {
-                labelClassName[list.length - 1].style.display = "none";
+                $(labelClassName[list.length - 1]).fadeOut(300);
             }
+        });
+        $(deleteTagBox[list.length - 1]).click(function() {
+            $(tagBox[list.length - 1]).slideUp();
         });
 }
 lastChangerSet();
