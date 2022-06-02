@@ -15,8 +15,10 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
 import ru.mad.cssstarter.filegeneration.FileGenerator;
 import ru.mad.cssstarter.json.FormData;
+import ru.mad.cssstarter.json.Tag;
 
 @Controller
 public class DownloadController {
@@ -31,8 +33,7 @@ public class DownloadController {
     }
 
     @GetMapping("/download")
-    public void zipDownload(HttpServletResponse response) throws IOException {
-        List<String> fileData = FormData.testGetList();
+    public void zipDownload(HttpServletResponse response, @ModelAttribute("taglist")List<Tag> fileData) throws IOException {
         String fn = fileGenrator.generate(fileData);
         List<String> names = new ArrayList<>();
         names.add(fn);

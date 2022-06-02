@@ -5,6 +5,9 @@
     <title>1</title>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
           rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap" rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
@@ -13,119 +16,117 @@
 </head>
 <body>
 <section class="body1">
-    <header th:insert="mainpage.html::header"/>
-    <div class="content">
-        <div class="settings">
-            <datalist id="fontlist">
-            </datalist>
-            <div class="boxes">
-                <div class="box">
-                    <div class="set">
-                        <button class="accordion"> &lt;p&gt;</button>
-                        <div class="panel">
-                            <p>
-                                <label><input type="text" list="fontlist" class="selectedFont" autocomplete="off"></label>
-                            </p>
-                            <p>
-                                <label><input type="checkbox" class="needToDownload"></label>
-                                <label style="display: none" class="labelClassName">Класс<input type="text" class="className"></label>
-                            </p>
-                            <p>
-                                <label>Курсив<input type="checkbox" class="cursiveChange"></label>
-                                <label>Жирный<input type="checkbox" class="boldChange"></label>
-                                <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
-                                <button class="changeLanguage">eng</button>
-                            </p>
-                            <p>
-                                <label>Шрифт<input type="color" class="toChangeFontColor" value="#000000"></label>
-                                <label>Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
-                            </p>
-                            <span class="deleteTagBox">&times;</span>
-                        </div>
-                    </div>
-                    <div class="val">
-                        <p class="toChange">Cozy sphinx waves quart jug of bad milk</p>
-                    </div>
-                </div>
+    <header th:fragment="header">
+        <nav>
+            <a href="/" class="Maker1">CssMaker</a>
+            <div class="nav-links">
+                <!-- <i class="fa-solid fa-xmark"></i> -->
+                <ul>
+                    <li><a href='/quest'>наш продукт</a></li>
+                    <li><a href='/dev'>разработка</a></li>
+                    <li><a href='/team'>наша команда</a></li>
+                    <li><a href='#'>блог</a></li>
+                    <li><a href='#'>ссылки</a></li>
+
+                    <!-- <li><a href='' class="ru1">ru</a></li> -->
+                    <li><a href='#' class="eng1">eng</a></li>
+                </ul>
+
             </div>
-            <p>
-                <button class="JSONbtn">JSON</button>
-            </p>
-            <button id="modal-btn">+ ADD</button>
-            <div id="my-modal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2>Modal Header</h2>
-                    </div>
-                    <div class="modal-body">
-                        <button class="createptag" value="p" onclick="">&lt;p&gt;</button>
-                        <button class="createptag" value="h1" onclick="">&lt;h1&gt;</button>
-                        <button class="createptag" value="h2" onclick="">&lt;h2&gt;</button>
-                        <button class="createptag" value="h3" onclick="">&lt;h3&gt;</button>
-                        <button class="createptag" value="h4" onclick="">&lt;h4&gt;</button>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
+            <!-- <i class="fa-solid fa-bars"></i> -->
+        </nav>
+    </header>
+    <div class="content">
+        <datalist id="fontlist">
+        </datalist>
+        <div id="my-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <button class="createptag" value="p" onclick="">&lt;p&gt;</button>
+                    <button class="createptag" value="h1" onclick="">&lt;h1&gt;</button>
+                    <button class="createptag" value="h2" onclick="">&lt;h2&gt;</button>
+                    <button class="createptag" value="h3" onclick="">&lt;h3&gt;</button>
+                    <button class="createptag" value="h4" onclick="">&lt;h4&gt;</button>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
             </div>
         </div>
-
-        <div class="siteBlock">
-            <div class="site">
-                <div id="header"></div>
-                <div id="content">
-                    <div id="wrap">
-                        <div id="block">
-
+        <div class="site">
+            <div id="header">
+                <img src="../static/img/logo.png">
+            </div>
+            <div id="content">
+                <div id="wrap">
+                    <div class="boxes">
+                        <div class="template" style="display: none">
+                            <div class="set">
+                                <button class="accordion"><span class="arrow"><span></span><span></span></span>
+                                    <div class="deleteTagBox">
+                                        <div class="delbox">
+                                            <div class="delminus"></div>
+                                        </div>
+                                    </div>
+                                </button>
+                                <div class="panel">
+                                    <div class="firstLine">
+                                        <select class="selectedFont"></select>
+                                        <input type="number" class="fontSize"
+                                               min="1" value="16" step="1"
+                                               max="36">
+                                    </div>
+                                    <div class="secondLine">
+                                        <div>
+                                        <input type="checkbox" class="boldChange"><label
+                                            style="font-weight: bold">B</label>
+                                        <input type="checkbox" class="cursiveChange"><label
+                                            style="font-style: italic">I</label>
+                                        <button class="changeLanguage">eng</button>
+                                        </div>
+                                        <label class="labelClassName">Класс:<input type="text"
+                                                                                   class="className"></label>
+                                    </div>
+                                    <div class="thirdLine">
+                                        <div>
+                                            <input type="color" class="toChangeFontColor" value="#000000"><input
+                                                class="colConnected" type="text" value="#000000"></div>
+                                        <div><label>Добавить
+                                            элемент в css:</label><input type="checkbox" checked class="needToDownload">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="val">
+                            </div>
                         </div>
                     </div>
+                    <div class="add"><button type="button" id="modal-btn"><span>+</span>ADD</button></div>
+                    <button type="button" class="JSONbtn">Next step</button>
+                    <label style="display: none">Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
                 </div>
-                <div id="footer"></div>
             </div>
+            <div id="footer"></div>
         </div>
 
         <script type="text/javascript" src="../static/js/fontLoader.js"></script>
-        <script type="text/javascript" src="../static/js/sendJson.js"></script>
+        <script type="text/javascript" src="js/sendJson.js"></script>
         <script type="text/javascript" src="../static/js/tagCreate.js"></script>
         <script type="text/javascript" src="../static/js/modal.js"></script>
         <script type="text/javascript" src="../static/js/fontInjection.js"></script>
         <script type="text/javascript" src="../static/js/fontChanger.js"></script>
         <script type="text/javascript" src="../static/js/accordion.js"></script>
     </div>
-
 </section>
 <!-- Course -->
 <section class="course">
     <h1> Бля не помню че сюда пойдет</h1>
     <p>Толи контакты какието то ли че. Даня Андрей приветы</p>
 </section>
-<div class="template" style="display: none">
-    <div class="set">
-        <button class="accordion"></button>
-        <div class="panel">
-            <p>
-                <label><input type="text" list="fontlist" class="selectedFont" autocomplete="off"></label>
-            </p>
-            <p>
-                <label><input type="checkbox" class="needToDownload"></label>
-                <label style="display: none" class="labelClassName">Класс<input type="text" class="className"></label>
-            </p>
-            <p>
-                <label>Курсив<input type="checkbox" class="cursiveChange"></label>
-                <label>Жирный<input type="checkbox" class="boldChange"></label>
-                <label>Размер текста<input type="number" class="fontSize" min="1" value="16" step="1" max="36"></label>
-                <button class="changeLanguage">eng</button>
-            </p>
-            <p>
-                <label>Шрифт<input type="color" class="toChangeFontColor" value="#000000"></label>
-                <label>Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
-            </p>
-            <span class="deleteTagBox">&times;</span>
-        </div>
-    </div>
-    <div class="val">
-    </div>
-</div>
-
+<script>
+    ready();
+</script>
 </body>
 </html>

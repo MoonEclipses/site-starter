@@ -1,14 +1,19 @@
 function lastAccordSet() {
     let boxes = document.querySelector('.boxes');
     let acc = boxes.getElementsByClassName("accordion");
-    acc[acc.length - 1].addEventListener("click", function() {
+    let arrow = document.querySelectorAll('.arrow');
+    acc[acc.length - 1].addEventListener("click", function () {
         this.classList.toggle("active");
         let panel = this.nextElementSibling;
-        if (panel.style.maxHeight){
+        if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
+        if (arrow[acc.length - 1].className == 'arrow') {
+            arrow[acc.length - 1].className = 'arrow active';
+        } else {
+            arrow[acc.length - 1].className = 'arrow';
+        }
     });
 }
-lastAccordSet();
