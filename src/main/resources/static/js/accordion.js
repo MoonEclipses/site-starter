@@ -10,10 +10,10 @@ function lastAccordSet() {
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
-        if (arrow[acc.length - 1].className == 'arrow') {
-            arrow[acc.length - 1].className = 'arrow active';
+        if (arrow[arrow.length - 1].className == 'arrow') {
+            arrow[arrow.length - 1].className = 'arrow active';
         } else {
-            arrow[acc.length - 1].className = 'arrow';
+            arrow[arrow.length - 1].className = 'arrow';
         }
     });
 }

@@ -5,6 +5,8 @@ backgroundColor[0].addEventListener('input', function () {
 });
 function lastChangerSet() {
     let boxes = document.querySelector('.boxes'); //Все боксы тегов
+    let box =  boxes.querySelectorAll(".box");
+    let actBox = box[box.length-1];
     let list = boxes.querySelectorAll('.selectedFont'); //Изменяемый текст
     let cursive = boxes.querySelectorAll('.cursiveChange') //Курсив
     let bold = boxes.querySelectorAll('.boldChange') //Жирный
@@ -58,21 +60,21 @@ function lastChangerSet() {
             language[list.length - 1].textContent = "eng";
         }
     });
-    deleteTagBox[deleteTagBox.length - 1].addEventListener('click', function () {
-        tagBox[tagBox.length - 1].remove();
-    });
     fontColor[list.length - 1].addEventListener('input', function () {
         toChange[toChange.length - 1].style.color = fontColor[list.length - 1].value;
         var value = fontColor[list.length - 1].value;
         colCon[list.length - 1].value = value;
     });
 
-    classCheckbox[list.length - 1].addEventListener('change', function () {
-        if (classCheckbox[list.length - 1].checked) {
-            labelClassName[list.length - 1].style.display = "inline";
+    $(classCheckbox[classCheckbox.length - 1]).change(function () {
+        if(classCheckbox[list.length - 1].checked) {
+            $(labelClassName[list.length - 1]).fadeIn(300);
         } else {
-            labelClassName[list.length - 1].style.display = "none";
+            $(labelClassName[list.length - 1]).fadeOut(300);
         }
+    });
+    $(deleteTagBox[deleteTagBox.length - 1]).click(function() {
+        $(tagBox[tagBox.length - 1]).slideUp();
     });
 }
 lastChangerSet();

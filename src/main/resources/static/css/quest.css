@@ -162,6 +162,7 @@
 }
 
 .box {
+    margin-top: 25px;
     display: flex;
 }
 
