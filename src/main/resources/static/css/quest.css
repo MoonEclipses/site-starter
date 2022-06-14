@@ -1,35 +1,44 @@
-
 /* Настройки для кнопки аккордеона */
 .accordion {
-    background-color: #E0E0E0;
+    display: flex;
+    background-color: #D1D1D1;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 20px;
+    font-size: 1.5rem;
+    font-family: 'Tomorrow', sans-serif;
     transition: 0.4s;
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 15px 15px;
 }
+
 /* Бэкграунд при наведении и активном состоянии, мб вообще убрать для active, выглядит посредственно */
 .accordion:hover {
     background-color: #ccc;
 }
-.boxes{
-    margin-top: 6rem;
+
+.boxes {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
+
 /* Настройки для внутренности аккордеона */
 .panel {
-    padding: 0 18px;
-    background-color: #E0E0E0;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 45px;
+    background-color: #D1D1D1;
     max-height: 0;
     overflow: hidden;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 15px 15px;
     transition: max-height 0.2s ease-out;
     margin-bottom: 10px;
-
+    margin-top: -10.5px;
 }
+
 /*
 Пример, потом удалить
 <button class="accordion"> Аккордеон </button>
@@ -37,17 +46,21 @@
  */
 
 .selectedFont {
-    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px solid black;
+    font-size: 1rem;
+    width: 200px;
+    height: 1.5rem;
 }
 
 .toChange {
     font-family: Times New Roman;
-
 }
 
 #modal-btn {
-    font-family: Quicksand, sans-serif ;
+    font-family: Quicksand, sans-serif;
     font-size: 24px;
+    font-weight: bold;
     background: #EDB886;
     border-radius: 20px;
     border: 0;
@@ -56,6 +69,13 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+#modal-btn span {
+    margin: 0;
+    font-size: 36px;
+    color: #51317A;
+    font-weight: bold;
 }
 
 :root {
@@ -74,6 +94,7 @@
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 /* Настройка фона при нажатии кнопки */
 
 .modal-content {
@@ -125,72 +146,110 @@
 }
 
 .fontSize {
+    border-radius: 4px;
+    border: 2px solid black;
+    font-size: 1rem;
     width: 45px;
-    margin-left: 5px;
+    margin-right: 0;
+    margin-left: auto;
+
 }
+
 .content {
-    display: flex;
-    width: 85%;
+    width: 65%;
     min-height: 80vh;
     margin: 0 auto;
 }
-.settings{
-    width: 30%;
-}
-.siteBlock{
-    padding: 0 2rem;
-    width: 100%;
-}
-.site {
-    height: 100%;
-    width: 100%;
-}
-#header{
-    border-radius: 30px 30px 0 0;
-    background: #EDB886;
-    height: 5rem;
-    width: 100%;
-    box-shadow: 4px 4px 3px 2px black;
-}
-#content{
-    box-shadow: 4px 4px 3px 2px black;
-    z-index: -1;
-    background: white;
-    min-height: 100%;
-    width: 100%;
-}
-#wrap {
-    margin: 0 auto;
-    width: 80%;
-}
-#block {
-    padding-top: 20px;
-    min-height: 40px;
-}
-#footer{
-    box-shadow: 4px 4px 3px 2px black;
-    background: #444444;
-    height: 5rem;
-    width: 100%;
-}
-.course {
-    margin-top: 170px;
-    height: 70px;
-}
-.toChange {
 
-}
-.val {
-    margin-top: 10px;
-    margin-left: 10vw;
-    z-index: 80;
-}
-.box{
+.box {
     display: flex;
-    width: 70vw;
 }
+
+
+.toChangeFontColor, .toChangeBackgroundColor {
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.className {
+    border-radius: 4px;
+    border: 2px solid black;
+    width: 100px;
+    margin-left: 5px;
+}
+
+#header {
+    background: #3BD2B6;
+    height: 10vh;
+    border-radius: 20px 20px 0 0;
+}
+
+#header img {
+    width: 180px;
+    height: 90px;
+    margin-top: auto;
+    margin-left: 80px;
+}
+
+#content {
+    background: white;
+    min-height: 65vh;
+}
+
+#footer {
+    background: #333333;
+    height: 7vh;
+    border-radius: 0 0 20px 20px;
+}
+
+#wrap {
+    width: 75%;
+    min-height: 65vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.arrow {
+    width: 2rem;
+    height: 1.7rem;
+    display: inline-block;
+    position: relative;
+    margin-top: 4px;
+}
+
+.arrow span {
+    top: 0.5rem;
+    position: absolute;
+    width: 1.2rem;
+    height: 0.1rem;
+    background-color: black;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.arrow span:first-of-type {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.arrow span:last-of-type {
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+.arrow.active span:first-of-type {
+    transform: rotate(-45deg);
+}
+
+.arrow.active span:last-of-type {
+    transform: rotate(45deg);
+}
+
 .deleteTagBox {
-    font-size: 30px;
+    margin-left: auto;
     color: #000;
 }
 
@@ -201,13 +260,103 @@
     cursor: pointer;
 }
 
-.toChangeFontColor, .toChangeBackgroundColor {
-    margin-left: 5px;
-    width: 25px;
-    height: 25px;
+.delbox {
+    transition: 0.4s;
+    width: 21px;
+    height: 21px;
+    border: 3px solid black;
+    border-radius: 5px;
 }
 
-.className {
-    width: 100px;
-    margin-left: 5px;
+.delbox:hover {
+    transition: 0.4s;
+    background: crimson;
+}
+
+.delminus {
+    margin: 7px auto;
+    width: 13px;
+    height: 3px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: #D1D1D1;
+}
+
+.set {
+    width: 45%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.add {
+    width: 45%;
+}
+
+.val {
+    margin-left: 2rem;
+}
+
+.toChangeFontColor {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: #D1D1D1;
+}
+
+.firstLine {
+    display: flex;
+    padding: 5px;
+}
+
+.secondLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.thirdLine {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.boldChange {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+
+.cursiveChange {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+
+.colConnected {
+    width: 60px;
+}
+
+.changeLanguage {
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.JSONbtn {
+    padding: 15px;
+    font-family: Quicksand, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    background: #EDB886;
+    border-radius: 35px;
+    border: 0;
+    margin: auto 0 35px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

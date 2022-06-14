@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
     let xhr = new XMLHttpRequest();
@@ -7,13 +6,15 @@ function ready() {
     //вместо ссылки при запуске серва должно стоять /fonts/get
     xhr.responseType = 'json';
     xhr.send(null);
-    let datalist = document.getElementById('fontlist');
+    let datalist = document.querySelectorAll('.selectedFont');
 
     xhr.onload = function () {
         let fonts = xhr.response.items;
         fonts.forEach((element) => {
             let option = document.createElement('option');
             option.value = element.family;
-            datalist.appendChild(option);})
+            option.innerText = element.family;
+            datalist[datalist.length-1].appendChild(option);})
+        createNewBox();
     };
 }
