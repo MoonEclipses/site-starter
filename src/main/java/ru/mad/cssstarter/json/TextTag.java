@@ -8,13 +8,18 @@ public class TextTag  extends Tag{
     public String color;
     public String clName;
 
-    public TextTag(String tagName, String fontFamily) {
-        super(tagName);
-        this.fontFamily = fontFamily;
+    public TextTag(){
+        super();
+        fontFamily = null;
+        fontSize = 0;
+        bold = false;
+        italic = false;
+        color = "#000000";
+        clName = null;
     }
 
-    public TextTag(String tagName, String fontFamily, int fontSize, boolean bold, boolean italic, String color, String clName) {
-        super(tagName);
+    public TextTag(String tagName, String type, String fontFamily, int fontSize, boolean bold, boolean italic, String color, String clName) {
+        super(tagName, type);
         this.fontFamily = fontFamily;
         this.fontSize = fontSize;
         this.bold = bold;
@@ -73,7 +78,7 @@ public class TextTag  extends Tag{
 
     @Override
     public String toString() {
-        return clName +" {" +
+        return clName +" {\n" +
                 "font-family:" + fontFamily + ";\n" +
                 "font-size:" + fontSize + ";\n" +
                 (bold?"font-weight: bold;\n":"") +

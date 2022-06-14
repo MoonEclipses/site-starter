@@ -26,8 +26,11 @@ public class CssGenrator implements FileGenerator {
         FileOutputStream fos = null;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileBasePath + fileName))) {
             for(Tag tag: fileData){
-                bw.write(tag.toString());
-                bw.newLine();
+                String[] option = tag.toString().split("\n");
+                for(String line: option){
+                    bw.write(line);
+                    bw.newLine();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
