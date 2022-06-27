@@ -122,6 +122,24 @@
     background: #fff;
     border-radius: 0 0 5px 5px;
 }
+.modal-body button {
+    transition: 0.3s;
+    font-family: 'Tomorrow', sans-serif;
+    background: white;
+    font-size: 20px;
+    font-weight: bold;
+    color: #EDB886;
+    border-radius: 20px;
+    border: #EDB886 solid 1px;
+    display: flex;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.modal-body button:hover {
+    transition: 0.3s;
+    background: #EDB886;
+    color: white;
+}
 
 .close {
     float: right;
@@ -205,7 +223,7 @@
 }
 
 #wrap {
-    width: 75%;
+    width: 90%;
     min-height: 65vh;
     margin: 0 auto;
     display: flex;
@@ -284,16 +302,19 @@
 }
 
 .set {
-    width: 45%;
+    width: 37%;
     font-family: 'Raleway', sans-serif;
 }
 
 .add {
-    width: 45%;
+    width: 37%;
 }
 
 .val {
     margin-left: 2rem;
+}
+.val h1 {
+    font-size: 32px;
 }
 
 .toChangeFontColor {

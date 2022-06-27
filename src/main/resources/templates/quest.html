@@ -7,7 +7,8 @@
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap"
+          rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
@@ -44,15 +45,31 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Modal Header</h2>
+                    <h2>Добавить новый элемент</h2>
                 </div>
                 <div class="modal-body">
-                    <button class="createptag" value="p" onclick="">&lt;p&gt;</button>
-                    <button class="createptag" value="h1" onclick="">&lt;h1&gt;</button>
-                    <button class="createptag" value="h2" onclick="">&lt;h2&gt;</button>
-                    <button class="createptag" value="h3" onclick="">&lt;h3&gt;</button>
-                    <button class="createptag" value="h4" onclick="">&lt;h4&gt;</button>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="modalelem" style="display: flex;">
+                        <button class="createptag" value="p">&lt;p&gt;</button>
+                        <label>Текст параграфа. Новый параграф новая строка</label>
+                    </div>
+                    <div class="modalelem" style="display: flex;">
+                        <button class="createptag" value="h1">&lt;h1&gt;</button>
+                        <label>Оглавление первого уровня. Используется для громких заголовков</label>
+                    </div>
+                    <div class="modalelem" style="display: flex;">
+                        <button class="createptag" value="h2">&lt;h2&gt;</button>
+                        <label>Оглавление второго уровня. Используется для названий статей</label>
+                    </div>
+                    <div class="modalelem" style="display: flex;">
+                        <button class="createptag" value="h3">&lt;h3&gt;</button>
+
+                        <label>Оглавление третьего уровня. Используется для названий в статьях</label>
+                    </div>
+                    <div class="modalelem" style="display: flex;">
+                        <button class="createptag" value="h4">&lt;h4&gt;</button>
+                        <label>Оглавление четвертого уровня. Используется для названий</label>
+                    </div>
+                    <p>Новые элементы скоро...</p>
                 </div>
             </div>
         </div>
@@ -77,18 +94,18 @@
                                         <select class="selectedFont"></select>
                                         <input type="number" class="fontSize"
                                                min="1" value="16" step="1"
-                                               max="36">
+                                               max="40">
                                     </div>
                                     <div class="secondLine">
                                         <div>
-                                        <input type="checkbox" class="boldChange"><label
-                                            style="font-weight: bold">B</label>
-                                        <input type="checkbox" class="cursiveChange"><label
-                                            style="font-style: italic">I</label>
-                                        <button class="changeLanguage">eng</button>
+                                            <input type="checkbox" class="boldChange"><label
+                                                style="font-weight: bold">B</label>
+                                            <input type="checkbox" class="cursiveChange"><label
+                                                style="font-style: italic">I</label>
+                                            <button class="changeLanguage">eng</button>
                                         </div>
                                         <label class="labelClassName" style="display: inline">Класс:<input type="text"
-                                                                                   class="className"></label>
+                                                                                                           class="className"></label>
                                     </div>
                                     <div class="thirdLine">
                                         <div>
@@ -104,7 +121,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="add"><button type="button" id="modal-btn"><span>+</span>ADD</button></div>
+                    <div class="add">
+                        <button type="button" id="modal-btn"><span>+</span>ADD</button>
+                    </div>
                     <button type="button" class="JSONbtn">Next step</button>
                     <label style="display: none">Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
                 </div>

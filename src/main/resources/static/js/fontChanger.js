@@ -75,6 +75,7 @@ function lastChangerSet() {
     });
     $(deleteTagBox[deleteTagBox.length - 1]).click(function() {
         $(tagBox[tagBox.length - 1]).slideUp();
+        setTimeout(() => { $(tagBox[tagBox.length - 1]).remove(); }, 1000);
     });
 }
 lastChangerSet();
