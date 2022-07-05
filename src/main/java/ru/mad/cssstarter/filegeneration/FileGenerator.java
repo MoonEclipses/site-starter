@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface FileGenerator {
     String generate(List<Tag> fileData);
+    String genetateStringFileData(List<Tag> fileData);
     void delete(String fileName);
+    String getFileName();
 }

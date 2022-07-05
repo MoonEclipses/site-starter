@@ -6,18 +6,22 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import ru.mad.cssstarter.filegeneration.CssGenerator;
 import ru.mad.cssstarter.filegeneration.FileGenerator;
+import ru.mad.cssstarter.filegeneration.HtmlGenerator;
 import ru.mad.cssstarter.json.FormData;
 import ru.mad.cssstarter.json.Tag;
 
@@ -25,33 +29,33 @@ import ru.mad.cssstarter.json.Tag;
 public class DownloadController {
     private final String fileBasePath;
     private final String zipFileName = "generated-files";
-    private FileGenerator fileGenrator;
+    private CssGenerator cssFileGenerator;
+    private HtmlGenerator htmlFileGenerator;
 
     @Autowired
-    public DownloadController(@Value("${download.filebasepath}") String fileBasePath, FileGenerator fileGenrator) {
+    public DownloadController(@Value("${download.filebasepath}") String fileBasePath, CssGenerator cssFileGenerator, HtmlGenerator htmlFileGenerator) {
         this.fileBasePath = fileBasePath;
-        this.fileGenrator = fileGenrator;
+        this.cssFileGenerator = cssFileGenerator;
+        this.htmlFileGenerator = htmlFileGenerator;
     }
 
     @GetMapping("/download")
-    public void zipDownload(HttpServletResponse response, @RequestParam("name") String name) throws IOException {
+    public void zipDownload(HttpServletResponse response, @CookieValue("name") String name) throws IOException {
         String json = FormData.getJsonFromName(name);
         List<Tag> fileData = FormData.getList(json);
-        String fn = fileGenrator.generate(fileData);
-        List<String> names = new ArrayList<>();
-        names.add(fn);
+        String stringCssFileData = cssFileGenerator.genetateStringFileData(fileData);
+        List<String> files = new ArrayList<>();
+        files.add(stringCssFileData);
         ZipOutputStream zipOut = new ZipOutputStream(response.getOutputStream());
-        for (String fileName : names) {
-            FileSystemResource resource = new FileSystemResource(fileBasePath + fileName);
-            ZipEntry zipEntry = new ZipEntry(resource.getFilename());
-            zipEntry.setSize(resource.contentLength());
+        for (String file : files) {
+            ZipEntry zipEntry = new ZipEntry(cssFileGenerator.getFileName());
+            zipEntry.setSize(file.getBytes(StandardCharsets.UTF_8).length);
             zipOut.putNextEntry(zipEntry);
-            StreamUtils.copy(resource.getInputStream(), zipOut);
+            StreamUtils.copy(new ByteArrayInputStream(file.getBytes()), zipOut);
             zipOut.closeEntry();
         }
         zipOut.finish();
         zipOut.close();
-        fileGenrator.delete(fn);
         response.setStatus(HttpServletResponse.SC_OK);
         response.addHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + zipFileName + "\"");
     }

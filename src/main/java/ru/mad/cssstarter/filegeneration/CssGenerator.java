@@ -10,11 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 @Component
-public class CssGenrator implements FileGenerator {
+public class CssGenerator implements FileGenerator {
 
     private final String fileBasePath;
 
-    public CssGenrator(@Value("${download.filebasepath}") String fileBasePath) {
+    public CssGenerator(@Value("${download.filebasepath}") String fileBasePath) {
         this.fileBasePath = fileBasePath;
     }
 
@@ -38,11 +38,27 @@ public class CssGenrator implements FileGenerator {
 
         return fileName;
     }
+
+    @Override
+    public String genetateStringFileData(List<Tag> fileData) {
+        StringBuilder stringFileData = new StringBuilder();
+        for(Tag tag: fileData){
+            stringFileData.append(tag.toString());
+        }
+        return stringFileData.toString();
+    }
+
     @Override
     public void delete(String fileName){
         File file = new File("src/main/resources/download-files/" + fileName);
         file.delete();
     }
+
+    @Override
+    public String getFileName() {
+        return "style.css";
+    }
+
     public void writeInFile(BufferedWriter bw) throws IOException {
 
     }

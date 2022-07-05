@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,7 +15,7 @@ import java.io.*;
 @Controller
 public class JsonController {
     @RequestMapping("/getJSON")
-    public void getJSON(@RequestParam("name") String name, HttpServletRequest request){
+    public void getJSON(@CookieValue("name") String name, HttpServletRequest request){
 
         String json = null;
         try {
