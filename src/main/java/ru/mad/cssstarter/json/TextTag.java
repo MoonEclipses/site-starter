@@ -6,7 +6,7 @@ public class TextTag  extends Tag{
     public boolean bold;
     public boolean italic;
     public String color;
-    public String clName;
+
 
     public TextTag(){
         super();
@@ -15,17 +15,15 @@ public class TextTag  extends Tag{
         bold = false;
         italic = false;
         color = "#000000";
-        clName = null;
     }
 
     public TextTag(String tagName, String type, String fontFamily, int fontSize, boolean bold, boolean italic, String color, String clName) {
-        super(tagName, type);
+        super(tagName, type,clName);
         this.fontFamily = fontFamily;
         this.fontSize = fontSize;
         this.bold = bold;
         this.italic = italic;
         this.color = color;
-        this.clName = clName;
     }
 
     public String getFontFamily() {
@@ -68,19 +66,12 @@ public class TextTag  extends Tag{
         this.color = color;
     }
 
-    public String getClName() {
-        return clName;
-    }
-
-    public void setClName(String clName) {
-        this.clName = clName;
-    }
 
     @Override
     public String toString() {
-        return clName +" {\n" +
+        return "."+clName +" {\n" +
                 "font-family:" + fontFamily + ";\n" +
-                "font-size:" + fontSize + ";\n" +
+                "font-size:" + fontSize + "px;\n" +
                 (bold?"font-weight: bold;\n":"") +
                 (italic?"font-style: italic;\n":"") +
                 "color:" + color + ";\n" +

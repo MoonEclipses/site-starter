@@ -12,34 +12,12 @@ body {
 .body1 {
     width: 100%;
 }
-.Maker1 {
-    color: black;
-    text-decoration: none;
-    font-family: 'AmstelvarAlpha';
-    width: 83px;
-    height: 16px;
-    font-style: bold;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 16px;
-    letter-spacing: -0.04em;
-    margin-left: -2%;
 
-}
-
-nav {
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links {
+.nav-links{
     flex: 1;
     text-align: right;
 }
-
-.nav-links ul li {
+.nav-links ul li{
     list-style: none;
     display: inline-block;
     padding: 8px 6px;
@@ -47,10 +25,10 @@ nav {
 
     margin-right: 25px;
     margin-left: 25px;
+
 }
 
-
-.nav-links ul li a {
+.nav-links ul li a{
     color: black;
     text-decoration: none;
     font-family: 'Manrope';
@@ -63,29 +41,87 @@ nav {
     letter-spacing: -0.04em;
 }
 
-.nav-links ul li::after {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background-color: #D39E72;;
-    display: block;
-    margin: auto;
-    transition: 0.3s;
+.Maker1{
+    color: black;
+    text-decoration: none;
+    font-family: 'AmstelvarAlpha';
+    width: 83px;
+    height: 16px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.04em;
+    margin-left: 2%;
+    margin-top: 3%;
 
 }
 
-.nav-links ul li:hover::after {
+header{
+    padding-top: 2%;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 6px;
+    position: relative;
+
+    margin-right: 25px;
+    margin-left: 25px;
+
+}
+
+.nav-links ul li a{
+    color: black;
+    text-decoration: none;
+    font-family: 'Manrope';
+    width: 83px;
+    height: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.04em;
+}
+
+
+
+footer {
     width: 100%;
+    margin: 60px auto 0;
+    /* padding: 10px; */
+    padding-top: 20px;
+    padding-bottom: -30px;
+
+    height: 40px;
+    position: relative;
+    background-color: rgb(58, 68, 155);
+    text-decoration: none;
+    color: #E0E0E0;
+    text-align: center;
+
+
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 16px;
+    letter-spacing: -0.04em;
 }
 
-.eng1 {
-    padding-left: 500px;
-    margin-right: -100px;
+.imgfooter{
+    width: 1%;
+    padding-left: 10px;
 }
 
-.course {
-    margin-bottom: -20px;
-    background-color: aliceblue;
+.imgfooter2{
+    width: 0.8%;
+    padding-left: 10px;
 }
 
 /*

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
     <meta charset='utf-8'>
     <title>1</title>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
@@ -12,32 +12,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
-    <link rel='stylesheet' type='text/css' href='../static/css/styleMAIN.css'>
-    <link rel='stylesheet' type='text/css' href='../static/css/quest.css'>
-    <script src="../static/js/jquery-3.6.0.js"></script>
+    <link rel='stylesheet' type='text/css' href='css/styleMAIN.css'>
+    <link rel='stylesheet' type='text/css' href='css/quest.css'>
+    <script src="js/jquery-3.6.0.js"></script>
 </head>
 <body>
 <section class="body1">
-    <header th:fragment="header">
-        <nav>
-            <a href="/" class="Maker1">CssMaker</a>
-            <div class="nav-links">
-                <!-- <i class="fa-solid fa-xmark"></i> -->
-                <ul>
-                    <li><a href='/quest'>наш продукт</a></li>
-                    <li><a href='/dev'>разработка</a></li>
-                    <li><a href='/team'>наша команда</a></li>
-                    <li><a href='#'>блог</a></li>
-                    <li><a href='#'>ссылки</a></li>
-
-                    <!-- <li><a href='' class="ru1">ru</a></li> -->
-                    <li><a href='#' class="eng1">eng</a></li>
-                </ul>
-
-            </div>
-            <!-- <i class="fa-solid fa-bars"></i> -->
-        </nav>
-    </header>
+    <div th:insert="mainpage.html :: header">
+    </div>
     <div class="content">
         <datalist id="fontlist">
         </datalist>
@@ -75,7 +57,7 @@
         </div>
         <div class="site">
             <div id="header">
-                <img src="../static/img/logo.png">
+                <img src="img/logo.png">
             </div>
             <div id="content">
                 <div id="wrap">
@@ -130,21 +112,19 @@
             </div>
             <div id="footer"></div>
         </div>
-        <script type="text/javascript" src="../static/js/sendinfo.js"></script>
-        <script type="text/javascript" src="../static/js/fontLoader.js"></script>
-        <script type="text/javascript" src="../static/js/sendJson.js"></script>
-        <script type="text/javascript" src="../static/js/tagCreate.js"></script>
-        <script type="text/javascript" src="../static/js/modal.js"></script>
-        <script type="text/javascript" src="../static/js/fontInjection.js"></script>
-        <script type="text/javascript" src="../static/js/fontChanger.js"></script>
-        <script type="text/javascript" src="../static/js/accordion.js"></script>
+        <script type="text/javascript" src="js/sendinfo.js"></script>
+        <script type="text/javascript" src="js/fontLoader.js"></script>
+        <script type="text/javascript" src="js/sendJson.js"></script>
+        <script type="text/javascript" src="js/tagCreate.js"></script>
+        <script type="text/javascript" src="js/modal.js"></script>
+        <script type="text/javascript" src="js/fontInjection.js"></script>
+        <script type="text/javascript" src="js/fontChanger.js"></script>
+        <script type="text/javascript" src="js/accordion.js"></script>
     </div>
 </section>
 <!-- Course -->
-<section class="course">
-    <h1> Бля не помню че сюда пойдет</h1>
-    <p>Толи контакты какието то ли че. Даня Андрей приветы</p>
-</section>
+<div th:insert="mainpage.html :: footer">
+</div>
 <script>
     ready();
 </script>

@@ -23,7 +23,6 @@ public class CssGenerator implements FileGenerator {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss_SS");
         String fileName = simpleDateFormat.format(date) + "style.css";
-        FileOutputStream fos = null;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileBasePath + fileName))) {
             for(Tag tag: fileData){
                 String[] option = tag.toString().split("\n");

@@ -1,16 +1,21 @@
 package ru.mad.cssstarter.filegeneration;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.mad.cssstarter.json.Tag;
+import ru.mad.cssstarter.json.TextTag;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.text.TabExpander;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Component
 public class HtmlGenerator implements FileGenerator{
     private final String fileBasePath;
@@ -23,7 +28,6 @@ public class HtmlGenerator implements FileGenerator{
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss_SS");
         String fileName = simpleDateFormat.format(date) + "style.css";
-        FileOutputStream fos = null;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileBasePath + fileName))) {
             for(Tag tag: fileData){
                 String[] option = tag.toString().split("\n");
@@ -41,7 +45,31 @@ public class HtmlGenerator implements FileGenerator{
 
     @Override
     public String genetateStringFileData(List<Tag> fileData) {
-        return null;
+        StringBuilder stringFileData = new StringBuilder();
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/download-files/index.html"))){
+            String line;
+            while ((line = br.readLine())!=null){
+                stringFileData.append(line + "\n");
+                if(line.contains("<body>")){
+                    for(Tag tag: fileData){
+                        stringFileData.append("<" + tag.getTagName() + " class=\"" + tag.getClName() +  "\">" +
+                                "Lorem ipsum dolore</" + tag.getTagName() +">\n");
+                    }
+                }
+                if(line.contains("<link")){
+                    stringFileData.append("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=");
+                    for(Tag tag: fileData){
+                        if(tag instanceof TextTag){
+                            stringFileData.append(((TextTag)tag).getFontFamily() + "|");
+                        }
+                    }
+                    stringFileData.append("\">\n");
+                }
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringFileData.toString();
     }
 
     @Override

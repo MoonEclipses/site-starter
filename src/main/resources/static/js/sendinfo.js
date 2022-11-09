@@ -67,11 +67,11 @@ function sendI() {
     xhr.send(myJSON)
 
     xhr.onload = function () {
-        alert(`Загружено: ${xhr.status} ${xhr.response}`);
         window.location.replace("/downloadPage")
     };
 
-    xhr.onerror = function () { // происходит, только когда запрос совсем не получилось выполнить
+    xhr.onerror = function () {
+
         alert(`Ошибка соединения`);
     };
 }
