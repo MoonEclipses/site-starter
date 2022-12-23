@@ -22,16 +22,16 @@ function sendI() {
                 }
 
                 let color = element.querySelector('.colConnected').value;
-                let accordion = element.querySelector('.accordion').textContent; //функции работы со строками substr, slice одну из них, чтобы выделить p,h1,h3
-                var start = accordion.indexOf("<") + 1;
-                var end = accordion.indexOf(">");
-                accordion = accordion.substring(start, end);
+                let accordionText = element.querySelector('.accordion').textContent; //функции работы со строками substr, slice одну из них, чтобы выделить p,h1,h3
+                var start = accordionText.indexOf("<") + 1;
+                var end = accordionText.indexOf(">");
+                accordionText = accordionText.substring(start, end);
 
                 // console.log(needToDownload, fontFamily, fontSize, bold, italic, clName, color, accordion)
 
                 var box = {                 // превратить в JSON
                     "type": "TextTag",
-                    "tagName": accordion,
+                    "tagName": accordionText,
                     "fontFamily": fontFamily,
                     "fontSize": fontSize,
                     "bold": bold,

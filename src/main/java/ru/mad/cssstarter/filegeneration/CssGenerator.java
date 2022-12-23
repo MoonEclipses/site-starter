@@ -2,7 +2,7 @@ package ru.mad.cssstarter.filegeneration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.mad.cssstarter.json.Tag;
+import ru.mad.cssstarter.json.Tag1;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -19,13 +19,13 @@ public class CssGenerator implements FileGenerator {
     }
 
     @Override
-    public String generate(List<Tag> fileData){
+    public String generate(List<Tag1> fileData){
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh_mm_ss_SS");
         String fileName = simpleDateFormat.format(date) + "style.css";
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileBasePath + fileName))) {
-            for(Tag tag: fileData){
-                String[] option = tag.toString().split("\n");
+            for(Tag1 tag1 : fileData){
+                String[] option = tag1.toString().split("\n");
                 for(String line: option){
                     bw.write(line);
                     bw.newLine();
@@ -39,10 +39,10 @@ public class CssGenerator implements FileGenerator {
     }
 
     @Override
-    public String genetateStringFileData(List<Tag> fileData) {
+    public String genetateStringFileData(List<Tag1> fileData) {
         StringBuilder stringFileData = new StringBuilder();
-        for(Tag tag: fileData){
-            stringFileData.append(tag.toString());
+        for(Tag1 tag1 : fileData){
+            stringFileData.append(tag1.toString());
         }
         return stringFileData.toString();
     }

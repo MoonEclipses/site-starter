@@ -21,7 +21,7 @@ import ru.mad.cssstarter.filegeneration.CssGenerator;
 import ru.mad.cssstarter.filegeneration.FileGenerator;
 import ru.mad.cssstarter.filegeneration.HtmlGenerator;
 import ru.mad.cssstarter.json.FormData;
-import ru.mad.cssstarter.json.Tag;
+import ru.mad.cssstarter.json.Tag1;
 
 @Controller
 public class DownloadController {
@@ -42,14 +42,14 @@ public class DownloadController {
         response.addHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + zipFileName + ".zip\"");
         response.setStatus(HttpServletResponse.SC_OK);
         String json = FormData.getJsonFromName(name);
-        List<Tag> fileData = FormData.getList(json);
+        List<Tag1> fileData = FormData.getList(json);
         ZipOutputStream zipOut = new ZipOutputStream(response.getOutputStream());
         createZipEntry(zipOut,cssFileGenerator,fileData);
         createZipEntry(zipOut,htmlFileGenerator,fileData);
         zipOut.finish();
         zipOut.close();
     }
-    private void createZipEntry(ZipOutputStream zipOut, FileGenerator fileGenerator, List<Tag> fileData) throws IOException{
+    private void createZipEntry(ZipOutputStream zipOut, FileGenerator fileGenerator, List<Tag1> fileData) throws IOException{
         String stringFileData = fileGenerator.genetateStringFileData(fileData);
         ZipEntry zipEntry = new ZipEntry(fileGenerator.getFileName());
         zipEntry.setSize(stringFileData.getBytes(StandardCharsets.UTF_8).length);

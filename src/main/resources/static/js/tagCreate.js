@@ -1,5 +1,6 @@
 let tagBtns = document.querySelectorAll('.createptag');
 let boxes = document.querySelector('.boxes');
+let propTemplates = document.querySelector(".htmlPropTeml");
 
 function createElement(template,elementName){
     let deleteTagBox = template.querySelector('.deleteTagBox');
@@ -18,16 +19,26 @@ function createNewBox(elementName = "p") {
     let elem = createElement(template,elementName);
     template.querySelector(".val").appendChild(elem);
     boxes.appendChild(template);
-    let styles = window.getComputedStyle(elem);
-    let fontSize = template.querySelector(".fontSize");
-    fontSize.value = parseInt(styles.fontSize);
-    if(styles.fontWeight > 100){
-        let bold = boxes.querySelector('.boldChange')
-        bold.checked = true;
-    }
     elem.className = "toChange";
     elem.style = "font-family: Roboto;";
     elem.innerText = "Cozy sphinx waves quart jug of bad milk";
+    let panel = template.querySelector(".panel");
+    tags.forEach((tag)=>{
+        if(tag.name === elementName) {
+            tag.props.forEach((prop) => {
+                let propElem = document.getElementById("prop" + prop.id).cloneNode(true);
+                panel.append(propElem);
+            })
+        }
+    });
+    let styles = window.getComputedStyle(elem);
+    let fontSize = template.querySelector(".fontSize");
+    fontSize.value = parseInt(styles.fontSize);
+    if(styles.fontWeight >= 700){
+        let bold = boxes.querySelector('.boldChange')
+        bold.checked = true;
+    }
+
     lastAccordSet();
     lastChangerSet();
     closeModal();

@@ -7,6 +7,7 @@ function lastAccordSet() {
         let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
+            panel.style.padding = null;
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }

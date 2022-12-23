@@ -3,6 +3,7 @@
 <head th:fragment="headerfiles">
     <meta charset='utf-8'>
     <title>1</title>
+    <link href="HtmlPropTempl.html" rel="import"/>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +22,38 @@
     <div th:insert="mainpage.html :: header">
     </div>
     <div class="content">
+        <div class="htmlPropTeml" style="display: none">
+            <div id="prop1">
+                <select class="selectedFont"></select>
+            </div>
+            <div id="prop2">
+                <input type="number" class="fontSize"
+                       min="1" value="16" step="1"
+                       max="40">
+            </div>
+            <div id="prop3">
+                <input type="checkbox" class="boldChange">
+                <label style="font-weight: bold">B</label>
+            </div>
+            <div id="prop4">
+                <input type="checkbox" class="cursiveChange">
+                <label style="font-style: italic">I</label>
+            </div>
+            <div id="prop5">
+                <label class="labelClassName" style="display: inline">Класс:<input type="text" class="className"></label>
+            </div>
+            <div id="prop6">
+                <input type="color" class="toChangeFontColor" value="#000000">
+                <input class="colConnected" type="text" value="#000000">
+            </div>
+            <div id="prop7">
+                <label>Добавить элемент в css:</label>
+                <input type="checkbox" checked class="needToDownload">
+            </div>
+            <div id="prop8">
+                <button class="changeLanguage">eng</button>
+            </div>
+        </div>
         <datalist id="fontlist">
         </datalist>
         <div id="my-modal" class="modal">
@@ -30,26 +63,14 @@
                     <h2>Добавить новый элемент</h2>
                 </div>
                 <div class="modal-body">
-                    <div class="modalelem" style="display: flex;">
-                        <button class="createptag" value="p">&lt;p&gt;</button>
-                        <label>Текст параграфа. Новый параграф новая строка</label>
-                    </div>
-                    <div class="modalelem" style="display: flex;">
-                        <button class="createptag" value="h1">&lt;h1&gt;</button>
-                        <label>Оглавление первого уровня. Используется для громких заголовков</label>
-                    </div>
-                    <div class="modalelem" style="display: flex;">
-                        <button class="createptag" value="h2">&lt;h2&gt;</button>
-                        <label>Оглавление второго уровня. Используется для названий статей</label>
-                    </div>
-                    <div class="modalelem" style="display: flex;">
-                        <button class="createptag" value="h3">&lt;h3&gt;</button>
-
-                        <label>Оглавление третьего уровня. Используется для названий в статьях</label>
-                    </div>
-                    <div class="modalelem" style="display: flex;">
-                        <button class="createptag" value="h4">&lt;h4&gt;</button>
-                        <label>Оглавление четвертого уровня. Используется для названий</label>
+                    <div class="modalelems" th:each="tag : ${tags}">
+                        <div class="modalelem" style="display: flex;">
+                            <button class="createptag" th:attr="value=${tag.getName()}"
+                                    th:text="'&lt;'+${tag.getName()}+'&gt;'">
+                                &lt;&gt;
+                            </button>
+                            <label th:text="${tag.getDesc()}">Описание</label>
+                        </div>
                     </div>
                     <p>Новые элементы скоро...</p>
                 </div>
@@ -72,6 +93,7 @@
                                     </div>
                                 </button>
                                 <div class="panel">
+                                    <!--
                                     <div class="firstLine">
                                         <select class="selectedFont"></select>
                                         <input type="number" class="fontSize"
@@ -97,6 +119,7 @@
                                             элемент в css:</label><input type="checkbox" checked class="needToDownload">
                                         </div>
                                     </div>
+                                    -->
                                 </div>
                             </div>
                             <div class="val">
@@ -112,6 +135,9 @@
             </div>
             <div id="footer"></div>
         </div>
+        <script type="text/javascript" th:inline="javascript">
+            let tags = [[${tags}]]
+        </script>
         <script type="text/javascript" src="js/sendinfo.js"></script>
         <script type="text/javascript" src="js/fontLoader.js"></script>
         <script type="text/javascript" src="js/sendJson.js"></script>

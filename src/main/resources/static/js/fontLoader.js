@@ -6,7 +6,8 @@ function ready() {
     //вместо ссылки при запуске серва должно стоять /fonts/get
     xhr.responseType = 'json';
     xhr.send(null);
-    let datalist = document.querySelectorAll('.selectedFont');
+    let propTemplates = document.querySelector(".htmlPropTeml");
+    let datalist = propTemplates.querySelectorAll('.selectedFont');
 
     xhr.onload = function () {
         let fonts = xhr.response.items;

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FormData {
-    public static List<Tag> getList(String json) {
-        List<Tag> list = new ArrayList<>();
+    public static List<Tag1> getList(String json) {
+        List<Tag1> list = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode wrap = mapper.readValue(json,JsonNode.class);
@@ -24,8 +23,8 @@ public class FormData {
                 String type = node.get("type").asText();
                 String nodejs = node.toString();
                 Class tagClass = Class.forName("ru.mad.cssstarter.json." +type);
-                Tag tag = (Tag) mapper.readValue(nodejs,tagClass);
-                list.add(tag);
+                Tag1 tag1 = (Tag1) mapper.readValue(nodejs,tagClass);
+                list.add(tag1);
             }
         } catch (JsonProcessingException | ClassNotFoundException e) {
             e.printStackTrace();

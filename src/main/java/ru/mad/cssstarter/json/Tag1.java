@@ -1,17 +1,17 @@
 package ru.mad.cssstarter.json;
 
-public class Tag {
+public class Tag1 {
     private String tagName;
     private String type;
     public String clName;
 
-    public Tag(){
+    public Tag1(){
         tagName = null;
         type = null;
         clName = null;
     }
 
-    public Tag(String tagName, String type,String clName) {
+    public Tag1(String tagName, String type, String clName) {
         this.tagName = tagName;
         this.type = type;
         this.clName = clName;

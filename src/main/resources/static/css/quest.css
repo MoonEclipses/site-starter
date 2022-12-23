@@ -28,17 +28,22 @@
 .panel {
     font-size: 1rem;
     display: flex;
-    flex-direction: column;
-    padding: 0 45px;
+    flex-wrap: wrap;
+    gap: 4%;
     background-color: #D1D1D1;
     max-height: 0;
+    padding-right: 12%;
+    padding-left: 12%;
     overflow: hidden;
     border-radius: 0 0 15px 15px;
     transition: max-height 0.2s ease-out;
     margin-bottom: 10px;
     margin-top: -10.5px;
 }
-
+.panel div {
+    margin-top: 1.2%;
+    margin-bottom: 1.2%;
+}
 /*
 Пример, потом удалить
 <button class="accordion"> Аккордеон </button>
@@ -199,7 +204,7 @@
 }
 
 #header {
-    background: #3BD2B6;
+    background: #AAAAAA;
     height: 10vh;
     border-radius: 20px 20px 0 0;
 }
@@ -304,6 +309,8 @@
 .set {
     width: 37%;
     font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .add {

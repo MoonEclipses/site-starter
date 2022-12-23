@@ -1,6 +1,6 @@
 package ru.mad.cssstarter.json;
 
-public class TextTag  extends Tag{
+public class TextTag1 extends Tag1 {
     public String fontFamily;
     public int fontSize;
     public boolean bold;
@@ -8,7 +8,7 @@ public class TextTag  extends Tag{
     public String color;
 
 
-    public TextTag(){
+    public TextTag1(){
         super();
         fontFamily = null;
         fontSize = 0;
@@ -17,7 +17,7 @@ public class TextTag  extends Tag{
         color = "#000000";
     }
 
-    public TextTag(String tagName, String type, String fontFamily, int fontSize, boolean bold, boolean italic, String color, String clName) {
+    public TextTag1(String tagName, String type, String fontFamily, int fontSize, boolean bold, boolean italic, String color, String clName) {
         super(tagName, type,clName);
         this.fontFamily = fontFamily;
         this.fontSize = fontSize;
