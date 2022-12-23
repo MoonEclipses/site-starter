@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset='utf-8'>
+    <title>1</title>
+    <link href="HtmlPropTempl.html" rel="import"/>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap"
+          rel="stylesheet">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'
+          href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
+    <link rel='stylesheet' type='text/css' href='css/styleMAIN.css'>
+    <link rel='stylesheet' type='text/css' href='css/quest.css'>
+    <script src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<section class="body1">
+    <div th:insert="mainpage.html :: header">
+    </div>
+
+
+    <button onclick="sendI()" type="button" class="JSONbtn">Next step</button>
+
+
+</section>
+<!-- Course -->
+<div th:insert="mainpage.html :: footer">
+</div>
+<script>
+    ready();
+</script>
+</body>
+</html>

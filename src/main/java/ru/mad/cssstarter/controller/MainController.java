@@ -48,7 +48,10 @@ public class MainController {
         modelAndView.addObject("tags", tags);
         return modelAndView;
     }
-
+    @GetMapping("/quest/html")
+    public String showQuestHtml() {
+        return "questhtlml";
+    }
     @GetMapping("/downloadPage")
     public String showDPage() {
         return "down";
