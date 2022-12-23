@@ -9,12 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap"
           rel="stylesheet">
+    <a href="https://www.flaticon.com/ru/free-icons/-" title="файлы и папки иконки"></a>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
     <link rel='stylesheet' type='text/css' href='../static/css/styleMAIN.css'>
     <link rel='stylesheet' type='text/css' href='../static/css/quest.css'>
     <script src="../static/js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/prism.css">
+    <script src="../static/js/prism.js"></script>
 </head>
 <body>
 <section class="body1">
@@ -83,11 +86,11 @@
                         <div class="template" style="display: none">
                             <div class="set">
                                 <button class="accordion"><span class="arrow"><span></span><span></span></span>
-                                    <div class="deleteTagBox">
-                                        <div class="delbox">
-                                            <div class="delminus"></div>
+                                        <div class="deleteTagBox">
+                                            <div class="delbox">
+                                                <div class="delminus"></div>
+                                            </div>
                                         </div>
-                                    </div>
                                 </button>
                                 <div class="panel">
                                     <div class="firstLine">
@@ -104,8 +107,7 @@
                                                 style="font-style: italic">I</label>
                                             <button class="changeLanguage">eng</button>
                                         </div>
-                                        <label class="labelClassName" style="display: inline">Класс:<input type="text"
-                                                                                                           class="className"></label>
+                                        <label class="labelClassName" style="display: inline">Класс:<input type="text" class="className"></label>
                                     </div>
                                     <div class="thirdLine">
                                         <div>
@@ -115,10 +117,28 @@
                                             элемент в css:</label><input type="checkbox" checked class="needToDownload">
                                         </div>
                                     </div>
+                                    <div class="copyToClipboard">
+                                        <div class="copyIcon"></div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="val">
                             </div>
+                            <div class="codeContainer">
+                                        <span class="codeClassName"></span>
+                                        <span class="codeFontSize"></span>
+                                        <span class="codeFontColor"></span>
+                                        <span class="codeFontFamily"></span>
+                                        <span class="codeFontStyle"></span>
+                                        <span class="codeFontWeight"></span>
+                            </div>
+<!--                            <div class="codeContainer">
+                                <pre><code class="language-css" data-prismjs-copy="Copy me" data-prismjs-copy-success="I've been copied!">
+
+                                </code></pre>
+
+                            </div>-->
                         </div>
                     </div>
                     <div class="add">
@@ -128,7 +148,9 @@
                     <label style="display: none">Фон<input type="color" class="toChangeBackgroundColor" value="#ffffff"></label>
                 </div>
             </div>
+
             <div id="footer"></div>
+
         </div>
         <script type="text/javascript" src="../static/js/sendinfo.js"></script>
         <script type="text/javascript" src="../static/js/fontLoader.js"></script>
@@ -139,6 +161,7 @@
         <script type="text/javascript" src="../static/js/fontChanger.js"></script>
         <script type="text/javascript" src="../static/js/accordion.js"></script>
     </div>
+
 </section>
 <!-- Course -->
 <section class="course">
