@@ -284,12 +284,17 @@
     cursor: pointer;
 }
 
-.delbox {
+.delbox, .copyToClipboard {
     transition: 0.4s;
     width: 21px;
     height: 21px;
     border: 3px solid black;
     border-radius: 5px;
+    margin-left: 3px;
+}
+
+.codeContainer {
+    display: inline;
 }
 
 .delbox:hover {
@@ -305,7 +310,20 @@
     border-radius: 5px;
     background: #D1D1D1;
 }
-
+.copyIcon {
+    position: relative;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url('../img/copyIcon.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+pre {
+    width: 200px;
+    white-space: pre;
+}
 .set {
     width: 37%;
     font-family: 'Raleway', sans-serif;
