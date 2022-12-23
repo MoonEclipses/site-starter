@@ -35,7 +35,7 @@ function createNewBox(elementName = "p") {
     let fontSize = template.querySelector(".fontSize");
     fontSize.value = parseInt(styles.fontSize);
     if(styles.fontWeight >= 700){
-        let bold = boxes.querySelector('.boldChange')
+        let bold = template.querySelector('.boldChange')
         bold.checked = true;
     }
 

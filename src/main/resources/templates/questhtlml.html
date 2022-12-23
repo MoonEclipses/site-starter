@@ -1,37 +1,87 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="headerfiles">
+<head>
     <meta charset='utf-8'>
-    <title>1</title>
-    <link href="HtmlPropTempl.html" rel="import"/>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Adamina&family=Manrope:wght@500;700&family=Quicksand:wght@300&display=swap"
-          rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Roboto&family=Tomorrow&display=swap"
-          rel="stylesheet">
+    <title>2</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet'
-          href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css'>
     <link rel='stylesheet' type='text/css' href='css/styleMAIN.css'>
     <link rel='stylesheet' type='text/css' href='css/quest.css'>
-    <script src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="js/sendinfo.js"></script>
 </head>
 <body>
 <section class="body1">
     <div th:insert="mainpage.html :: header">
     </div>
-
-
+    <form>
+        <div class="headers">
+            <div class="hel">
+                <header style="display: flex; background: #428bca; justify-content: space-around; padding: 5%; width: 450px; height: 60px;">
+                    <h1>Logo</h1>
+                    <nav style="display: flex; gap: 3%; margin-bottom: auto; margin-top: auto">
+                        <a href="#">link1</a>
+                        <a href="#">link2</a>
+                        <a href="#">link3</a>
+                    </nav>
+                </header>
+                <input id="1" class="headerRadio" type="radio" name="headerRadio" checked>
+            </div>
+            <div class="hel">
+                <header style="display: flex; background: #ff1e00; justify-content: space-around; padding: 5%; width: 450px; height: 60px;">
+                    <nav style="display: flex; gap: 3%; margin-bottom: auto; margin-top: auto">
+                        <a href="#">link1</a>
+                        <a href="#">link2</a>
+                        <a href="#">link3</a>
+                    </nav>
+                    <h1>Logo</h1>
+                </header>
+                <input id="2" class="headerRadio" type="radio" name="headerRadio">
+            </div>
+            <div class="hel">
+                <header style="background: #51317A; padding: 5%; width: 450px; display: flex; flex-direction: column; align-items: center; height: 60px;">
+                    <h1 style="margin-top: 0">Logo</h1>
+                    <nav style="display: flex; gap: 3%;">
+                        <a href="#">link1</a>
+                        <a href="#">link2</a>
+                        <a href="#">link3</a>
+                    </nav>
+                </header>
+                <input id="3" class="headerRadio" type="radio" name="headerRadio">
+            </div>
+        </div>
+    </form>
+    <form>
+        <div class="footers">
+            <div class="fel">
+                <footer style="background: #333333; width: 450px; height: 60px;">
+                    <div style="">
+                        contacts: 88005553535
+                    </div>
+                </footer>
+                <input id="4" class="footerRadio" type="radio" name="footerRadio" checked>
+            </div>
+            <div class="fel">
+                <footer style="background: #EDB886; width: 450px; height: 60px;">
+                    <div style="margin: auto auto 0;">
+                        contacts: 88005553535
+                    </div>
+                </footer>
+                <input id="5"  class="footerRadio" type="radio" name="footerRadio">
+            </div>
+            <div class="fel">
+                <footer style="background: darkblue; width: 450px; height: 60px;">
+                    <div style="margin: auto auto 0;">
+                        contacts: 88005553535
+                    </div>
+                </footer>
+                <input id="6"  class="footerRadio" type="radio" name="footerRadio">
+            </div>
+        </div>
+    </form>
     <button onclick="sendI()" type="button" class="JSONbtn">Next step</button>
-
 
 </section>
 <!-- Course -->
 <div th:insert="mainpage.html :: footer">
 </div>
-<script>
-    ready();
-</script>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class FormData {
             for(JsonNode node: array){
                 String type = node.get("type").asText();
                 String nodejs = node.toString();
-                Class tagClass = Class.forName("ru.mad.cssstarter.json." +type);
+                Class tagClass = Class.forName("ru.mad.cssstarter.json." +type+"1");
                 Tag1 tag1 = (Tag1) mapper.readValue(nodejs,tagClass);
                 list.add(tag1);
             }

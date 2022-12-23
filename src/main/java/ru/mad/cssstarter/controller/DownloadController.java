@@ -2,6 +2,7 @@ package ru.mad.cssstarter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
@@ -29,6 +30,8 @@ public class DownloadController {
     private final String zipFileName = "css-starter";
     private CssGenerator cssFileGenerator;
     private HtmlGenerator htmlFileGenerator;
+    private int hid;
+    private int fid;
 
     @Autowired
     public DownloadController(@Value("${download.filebasepath}") String fileBasePath, CssGenerator cssFileGenerator, HtmlGenerator htmlFileGenerator) {
@@ -38,9 +41,11 @@ public class DownloadController {
     }
 
     @GetMapping("/download")
-    public void zipDownload(HttpServletResponse response, @CookieValue("name") String name) throws IOException {
+    public void zipDownload(HttpServletResponse response, @CookieValue("name") String name, @Param("hid") String hid, @Param("fid") String fid) throws IOException {
         response.addHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + zipFileName + ".zip\"");
         response.setStatus(HttpServletResponse.SC_OK);
+        this.hid = Integer.parseInt(hid);
+        this.fid = Integer.parseInt(fid);
         String json = FormData.getJsonFromName(name);
         List<Tag1> fileData = FormData.getList(json);
         ZipOutputStream zipOut = new ZipOutputStream(response.getOutputStream());
@@ -50,7 +55,9 @@ public class DownloadController {
         zipOut.close();
     }
     private void createZipEntry(ZipOutputStream zipOut, FileGenerator fileGenerator, List<Tag1> fileData) throws IOException{
-        String stringFileData = fileGenerator.genetateStringFileData(fileData);
+        String stringFileData;
+        if(fileGenerator instanceof HtmlGenerator) stringFileData = ((HtmlGenerator) fileGenerator).genetateStringFileData1(fileData,hid,fid);
+        else stringFileData = fileGenerator.genetateStringFileData(fileData);
         ZipEntry zipEntry = new ZipEntry(fileGenerator.getFileName());
         zipEntry.setSize(stringFileData.getBytes(StandardCharsets.UTF_8).length);
         zipOut.putNextEntry(zipEntry);

@@ -29,7 +29,8 @@ function lastChangerSet() {
     let codeFontFamily = boxes.querySelectorAll('.codeFontFamily');
     let codeFontStyle = boxes.querySelectorAll('.codeFontStyle');
     let codeFontWeight = boxes.querySelectorAll('.codeFontWeight');
-    let codeTag = boxes.querySelectorAll('.language-html')
+    let codeTag = boxes.querySelectorAll('.language-html');
+
     colCon[list.length - 1].addEventListener('change', function () {
         toChange[toChange.length - 1].style.color = colCon[list.length - 1].value;
         let value = colCon[list.length - 1].value;
@@ -83,6 +84,7 @@ function lastChangerSet() {
         setTimeout(() => { $(tagBox[tagBox.length - 1]).remove(); }, 1000);
     });
     copyToClipboard[list.length - 1].addEventListener('click', function () {
+        console.log("clicked")
         let copyText = createCodeText();
         navigator.clipboard.writeText(copyText);
     });
@@ -128,4 +130,3 @@ function lastChangerSet() {
         }
     }*/
 }
-lastChangerSet();

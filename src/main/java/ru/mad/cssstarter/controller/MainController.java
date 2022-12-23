@@ -1,6 +1,7 @@
 package ru.mad.cssstarter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -48,13 +49,16 @@ public class MainController {
         modelAndView.addObject("tags", tags);
         return modelAndView;
     }
-    @GetMapping("/quest/html")
+    @GetMapping("/questhtml")
     public String showQuestHtml() {
         return "questhtlml";
     }
     @GetMapping("/downloadPage")
-    public String showDPage() {
-        return "down";
+    public ModelAndView showDPage(@Param("hid") String hid, @Param("fid") String fid) {
+        ModelAndView modelAndView = new ModelAndView("down");
+        modelAndView.addObject("hid", hid);
+        modelAndView.addObject("fid", fid);
+        return modelAndView;
     }
 
     @GetMapping("/func")

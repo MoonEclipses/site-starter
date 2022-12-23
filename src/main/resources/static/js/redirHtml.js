@@ -67,7 +67,7 @@ function redir() {
     xhr.send(myJSON)
 
     xhr.onload = function () {
-        window.location.replace("/quest/html")
+        window.location.replace("/questhtml")
     };
 
     xhr.onerror = function () {
