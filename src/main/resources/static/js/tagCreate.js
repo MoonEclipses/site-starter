@@ -36,4 +36,3 @@ tagBtns.forEach(tagBtn => {
     tagBtn.addEventListener('click', createNewBox);
 });
 
-
